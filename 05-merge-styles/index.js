@@ -13,9 +13,10 @@ writeStream.on('data', (chunk) => {
 fs.readdir(path.resolve(__dirname, 'styles'), { withFileTypes: true }, (err, files) => {
   if (err) throw err; // не прочитать содержимое папки
 
-  files.filter(element => element.isFile()).filter((el) => path.extname(el.name) === '.css')
+  let filsFilter = files.filter(element => element.isFile())
+  let filterFileExpansion = filsFilter.filter((el) => path.extname(el.name) === '.css')
 
-  for (let i = 0; i < files.length; i++) {
+  for (let i = 0; i < filterFileExpansion.length; i++) {
 
     let readFile = fs.createReadStream(path.resolve(__dirname, 'styles', files[i].name))
 
