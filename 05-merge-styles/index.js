@@ -18,7 +18,7 @@ fs.readdir(path.resolve(__dirname, 'styles'), { withFileTypes: true }, (err, fil
 
   for (let i = 0; i < filterFileExpansion.length; i++) {
 
-    let readFile = fs.createReadStream(path.resolve(__dirname, 'styles', files[i].name))
+    let readFile = fs.createReadStream(path.resolve(__dirname, 'styles', filterFileExpansion[i].name))
 
     readFile.on('data', (chunk) => {
       if (err) throw err;
